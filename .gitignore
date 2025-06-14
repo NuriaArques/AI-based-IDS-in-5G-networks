@@ -1,6 +1,6 @@
 # Files
-datasets/UniformPartitions/*.csv
-datasets/UnbalancedPartitions/*.csv
+datasets/UNIFORM/*.csv
+datasets/UNBALANCED/*.csv
 datasets/EquitativeDataset.csv
 
 # Byte-compiled / optimized / DLL files
