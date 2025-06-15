@@ -36,7 +36,7 @@ pip install -r requirements.txt
 ```
 .
 ├── notebooks/
-│   ├── ReduceDataset.ipynb
+│   ├── ReducedDataset.ipynb
 │   ├── DataPartitions.ipynb
 │   ├── HyperparameterTuning.ipynb
 │   ├── FLTraining.ipynb
@@ -44,17 +44,20 @@ pip install -r requirements.txt
 │   └── Evaluation.ipynb
 ├── datasets/
 │   ├── UNIFORM/
-│   └── UNBALANCED/
+│   ├── UNBALANCED/
+│   ├── EquitativeDataset/
+│   ├── df_labels.csv
+│   └── df_test.csv
 ├── models/                 # Saved global models after each FL round
 │   ├── AD/
-│      └── DP/
+│       └── DP/
 │   └── AC/
-│      └── DP/
+│       └── DP/
 ├── metrics/                # Performance metrics of each training setup
 │   ├── AD/
-│      └── DP/
+│       └── DP/
 │   └── AC/
-│      └── DP/
+│       └── DP/
 ├── requirements.txt
 └── README.md
 ```
@@ -63,8 +66,8 @@ pip install -r requirements.txt
 
 Each Jupyter notebook encapsulates a core part of the workflow, designed to be run sequentially:
 
-1. [`ReduceDataset.ipynb`](notebooks/ReduceDataset.ipynb): **Dataset Preparation**  
-   - Loads and processes the [**CIC-IoT 2023** dataset](https://www.unb.ca/cic/datasets/iotdataset-2023.html).
+1. [`ReducedDataset.ipynb`](notebooks/ReducedDataset.ipynb): **Dataset Preparation**  
+   - Loads and processes the [**CIC-IoT 2023** dataset](https://www.unb.ca/cic/datasets/iotdataset-2023.html) using *PySpark*.
    - Balances the number of samples per attack type
    - Reduces the number of benign traffic samples to roughly match the total attack volume.  
    - Outputs a compact, balanced dataset for experimentation.
@@ -78,7 +81,7 @@ Each Jupyter notebook encapsulates a core part of the workflow, designed to be r
      - A **label encoder file** for class-to-index mapping.
 
 3. [`HyperparameterTuning.ipynb`](notebooks/HyperparameterTuning.ipynb): **Model Optimization**  
-   - Uses **Optuna** for automated hyperparameter tuning across different Deep Learning (DL) models.  
+   - Uses *Optuna* for automated hyperparameter tuning across different Deep Learning (DL) models.  
    - Each model has a dedicated study for reproducible and efficient search.  
    - Outputs optimal configurations for each model and task.
 
